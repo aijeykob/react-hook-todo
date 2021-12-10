@@ -3,7 +3,8 @@ import {connect} from "react-redux";
 import { Layout, Menu } from 'antd';
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 
-import './index.css'
+import './index.scss'
+import mainLogo from 'assets/images/mainLogo.png'
 const { Header, Content, Footer, Sider } = Layout;
 
 // import {NavLink} from "react-router-dom";
@@ -23,7 +24,10 @@ const Wrapper = (props) => {
                     console.log(collapsed, type);
                 }}
             >
-                <div className="logo" />
+                <div className="logo" >
+                <img src={mainLogo} alt='Logo'/>
+                    <span>To Do List</span>
+                </div>
                 <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
                     <Menu.Item key="1" icon={<UserOutlined />}>
                         nav 1
@@ -46,7 +50,7 @@ const Wrapper = (props) => {
                         content
                     </div>
                 </Content>
-                <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+                <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created Ündefined</Footer>
             </Layout>
         </Layout>
     );
