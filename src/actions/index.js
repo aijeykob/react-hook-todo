@@ -23,27 +23,21 @@ export const CHANGE_PAGE_PAGINATION = "CHANGE_PAGE_PAGINATION";
 
 
 export const writingRegistrationText = (text, field) => ({
-
     type: WRITING_REGISTRATION_TEXT, payload: text, field
 });
 export const writingLoginText = (text, field) => ({
-
     type: WRITING_LOGIN_TEXT, payload: text, field
 });
 export const submitLogin = (data) => ({
-
     type: SUBMIT_LOGIN, payload: data
 });
 export const submitRegistration = (data) => ({
-
     type: SUBMIT_REGISTRATION, payload: data
 });
 export const setCurrentUser = (data) => ({
-
     type: SET_CURRENT_USER, payload: data
 });
 export const checkToken = () => ({
-
     type: CHECK_TOKEN,
 });
 export const logOut = () => ({

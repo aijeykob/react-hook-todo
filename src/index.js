@@ -1,19 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore, applyMiddleware, compose} from 'redux'
+import {createStore, applyMiddleware, compose, combineReducers} from 'redux'
+import { reducer as formReducer } from 'redux-form'
 import {Provider} from "react-redux";
-import {BrowserRouter} from "react-router-dom";
 import createSagaMiddleware from 'redux-saga';
 import "antd/dist/antd.css";
 import rootSaga from './sagas';
-import reducer from './reducers/index';
-
-import App from './App';
+import mainReducer from './reducers/index';
+import MainRoutes from './MainRoutes';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const sagaMiddleware = createSagaMiddleware();
 const app = document.getElementById('root');
 
+const reducers = {
+  mainReducer,
+  form: formReducer
+}
+const reducer = combineReducers(reducers)
 const store = createStore(reducer,
     composeEnhancers(
         applyMiddleware(sagaMiddleware)
@@ -21,10 +25,8 @@ const store = createStore(reducer,
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
-    <BrowserRouter>
-        <Provider store={store}>
-            <App/>
-        </Provider>
-    </BrowserRouter>
+  <Provider store={store}>
+    <MainRoutes />
+  </Provider>
     ,
     app);

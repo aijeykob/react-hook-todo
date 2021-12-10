@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const apiUrl = "http://localhost:8080";
+const apiUrl = process.env.REACT_APP_API_URL;
 const setHeadersWithToken = () => {
     return {
         'Content-Type': 'application/json',
@@ -9,7 +8,7 @@ const setHeadersWithToken = () => {
 };
 export const submitRegistration = (d) => {
     return axios.post(
-        `${apiUrl}/registration`,
+        `${apiUrl}/user/registration`,
         d.payload,
     )
 };
